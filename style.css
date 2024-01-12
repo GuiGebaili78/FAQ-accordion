@@ -4,22 +4,21 @@
     height: 100vh;
     margin: 0;
 }
+
 .img-fundo {
     width: 100vw;
     z-index: 1;
 }
+
 .section {
     width: 500px;
-    height: 500px;
     background-color: #ffffff;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2; 
+    position: relative;
+    margin: -120px 320px;
     padding: 20px;
     border-radius: 15px;
-    
+
+
 }
 
 body {
@@ -27,49 +26,90 @@ body {
 }
 
 .accordion {
-    width: 400px;
-    margin-top: 50px;
+    width: 100%;
+    /* Ajustei a largura para ocupar 100% do container */
+    margin-top: 100px;
+    /* Ajustei o margin-top para espaço entre o título e os itens */
 }
 
-.accordion-item {    
+.accordion-item {
     margin-bottom: 1px;
+    margin-top: 10px;
+    font-size: 13px;
+    font-weight: bold;
 }
 
-.accordion-title {    
+.accordion-title {
     padding: 10px;
     cursor: pointer;
     user-select: none;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+
+}
+
+.accordion-title:hover {
+    color: #ad28eb;
+    /* Altere a cor desejada */
+}
+
+.img-title {
+    width: 80px;
+    height: 20px;
+    transition: transform 0.3s ease-in-out;
+    /* Adicionada transição ao ícone do título */
 }
 
 .accordion-content {
-    display: none;
-    padding: 10px;
+    max-height: 0;
+    font-weight: 200;
+    color: gray;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out, transform 0.3s ease-in-out;
+    /* Adicionadas transições */
 }
 
 .accordion-content.active {
-    display: block;
+    max-height: 500px;
+    /* Um valor grande o suficiente para acomodar seu conteúdo */
+    transform: translateY(0);
+    /* Movimenta o conteúdo para cima */
 }
+
+
+.accordion-item.active .section {
+    height: auto;
+    /* Ajusta a altura da section para 'auto' ao abrir o acordeão */
+}
+
 .faq {
     display: inline-block;
     justify-content: center;
-      
-
+    margin-top: 10px;
+    margin-left: 15px;
+    font-size: 48px;
+    font-weight: bold;
 }
+
 .estrela {
     float: left;
-    
+    width: 25px;
+    margin-top: 25px;
+    margin-left: 10px;
 }
+
 .container-faq {
-    display: block;
+    display: flex;
     width: 100px;
     height: 150px;
-    
 }
 
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
 
-
-
-
-
-.attribution { font-size: 11px; text-align: center; }
-.attribution a { color: hsl(228, 45%, 44%); }*/
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
